@@ -21,6 +21,7 @@ exports.handler = async (event, context, callback) => {
         if (prerender) {
              // Set request header with Prerender API token
              request.headers['x-prerender-token']= [{ key: 'X-Prerender-Token', value:'Your Prerender.io API Token'}];
+             request.headers['x-prerender-cachebuster'] = [{ key: 'X-Prerender-Cachebuster', value: Date.now().toString()}];
         }
     }
     callback(null, request);
